@@ -12,3 +12,10 @@ Instead of using ansible to install nginx, we can bootstrap user data to downloa
 Also instead of 1 large tf file, create modules to make it simpler. 
 Instructions don't mention a VPC/networking requirements but lets at the very least create some vpc and subnets. 
 
+#TODO 
+Branching Strategy for tf modules??
+Networking?
+security groups??
+ansible? + template? + defaults?
+terraform defaults?
+Incorporate everything into a main.tf which will pull in each of the modules such as networking, ec2, sg's etc. 
