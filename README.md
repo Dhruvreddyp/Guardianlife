@@ -19,3 +19,38 @@ security groups??
 ansible? + template? + defaults?
 terraform defaults?
 Incorporate everything into a main.tf which will pull in each of the modules such as networking, ec2, sg's etc. 
+
+Steps- 
+TF Init, plan, apply as needed. 
+
+Then tf destroy as needed. 
+
+
+2. Python script to run in server 1 in one aws account to publish sns topic in different aws account using datetime stamp. 
+
+Here's the approach:- 
+In terraform, use the module from the previous question to retrieve ami/region/networking for ec2 and sg as needed. 
+
+Create the below next. 
+
+SNS queue with topic and subscription
+configure IAM toi allow SNS
+Create ec2 and attach IAM role to instance. 
+
+Create python script to publish SNS topic. 
+Another python script to write the message to a file would be needed. 
+
+Create tf.vars for account A
+create tf vars for account B. 
+
+TF Init, plan, apply as needed. 
+Run python script
+
+The code for this definitely has a few errors such as missing tf.vars for the different accounts.
+Also, I ran into error in tf with SNS before so added the depends on portion in sns because we cannot have a subscription without a queue. 
+
+Main items to note here are that the sns items are cross account. 
+In terms of usecases for a question like this might be related to having a monitoring account setup and we need logfiles from one server to another with datatimestamps. 
+In this scenario, I would include atomic writes in my Python script which creates the file.
+
+3. 
