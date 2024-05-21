@@ -7,6 +7,8 @@ clone Git repo
 
 Answer- 
 Terraform code requires the provider, ec2 instance, and sg for ec2 instance. 
-We should probably create an s3 bucket in order to store tf state file. 
+We should probably create an s3 bucket in order to store tf state file and for dynamo.db lock
 Instead of using ansible to install nginx, we can bootstrap user data to download and run nginx via terraform. 
+Also instead of 1 large tf file, create modules to make it simpler. 
+Instructions don't mention a VPC/networking requirements but lets at the very least create some vpc and subnets. 
 
