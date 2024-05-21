@@ -63,3 +63,17 @@ Create the bash shell script to check if tomcat is running and if not, start it.
 Cron job to run the tomcat script using crontab -e 
 @reboot /home/ec2-user/check_tomcat.sh
 @0 6 * * 1-5 /home/ec2-user/check_tomcat.sh
+
+4. Find and replace to .new via a Bash shell
+
+Seems straight forward- find and replace shell script for a file. 
+Need to take in an input file, replace it with an output file. 
+
+I'm going to resort to creating a python script instead of a bash script for this. 
+
+Check 
+
+In this scenario, I'm prompting the user for an input file using the below:- 
+input_file = input("Enter the path to the input file: ")
+
+run the script using pyhthon3 search-replacefile.py
