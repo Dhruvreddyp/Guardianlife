@@ -53,4 +53,13 @@ Main items to note here are that the sns items are cross account.
 In terms of usecases for a question like this might be related to having a monitoring account setup and we need logfiles from one server to another with datatimestamps. 
 In this scenario, I would include atomic writes in my Python script which creates the file.
 
-3. 
+3. Create infra for ec2 using amazonlinux2
+Bash script to check for tomcat and schedule service for 6am every week day. 
+
+Approach- 
+re-use the ec2 tf from the first module, modify as needed. 
+Create user data in ec2-instance with the user data to install and start tomcat. 
+Create the bash shell script to check if tomcat is running and if not, start it. 
+Cron job to run the tomcat script using crontab -e 
+@reboot /home/ec2-user/check_tomcat.sh
+@0 6 * * 1-5 /home/ec2-user/check_tomcat.sh
